@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Logic Master - Brain Training Game</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Home Screen -->
+  <div id="home-screen" class="screen active">
+    <div class="home-container">
+      <h1>🧩 Logic Master</h1>
+      <p>Challenge your mind with three levels of logic puzzles!</p>
+      <div class="level-preview">
+        <div class="preview-card">
+          <h3>Level 1</h3>
+          <p>Number Sequences</p>
+        </div>
+        <div class="preview-card">
+          <h3>Level 2</h3>
+          <p>Grid Logic Puzzle</p>
+        </div>
+        <div class="preview-card">
+          <h3>Level 3</h3>
+          <p>Noise Filtering</p>
+        </div>
+      </div>
+      <button id="start-game" class="btn btn-primary">Start Game</button>
+    </div>
+  </div>
+
+  <!-- Level 1: Number Sequences -->
+  <div id="level1-screen" class="screen">
+    <div class="level-container">
+      <h2>Level 1: Number Sequences</h2>
+      <div class="progress-bar">
+        <div id="level1-progress" class="progress-fill"></div>
+      </div>
+      <div id="level1-content">
+        <div id="question-container">
+          <h3 id="question-text"></h3>
+          <div id="sequence-display"></div>
+          <div id="answer-buttons"></div>
+        </div>
+        <div class="score-display">
+          <span>Question <span id="current-question">1</span> of 3</span>
+        </div>
+      </div>
+      <div id="level1-result" class="result-message hidden"></div>
+    </div>
+  </div>
+
+  <!-- Level 2: Grid Logic -->
+  <div id="level2-screen" class="screen">
+    <div class="level-container">
+      <h2>Level 2: Grid Logic Puzzle</h2>
+      <div class="grid-section">
+        <div class="grid-container">
+          <table id="logic-grid" class="logic-grid">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Red</th>
+                <th>Yellow</th>
+                <th>Green</th>
+                <th>Purple</th>
+                <th>Brown</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="grid-controls">
+          <button id="clear-grid" class="btn btn-secondary">Clear Grid</button>
+          <button id="check-solution" class="btn btn-primary">Check Solution</button>
+        </div>
+      </div>
+      <div class="clues-section">
+        <h3>Clues:</h3>
+        <ol id="clues-list">
+          <li>The triangles are the purple shapes. There are less than 6 triangles.</li>
+          <li>Neither the squares nor the hexagons are green.</li>
+          <li>The number of circles is not 4. The circles are not red or yellow.</li>
+          <li>There are fewer octagons than there are yellow shapes.</li>
+          <li>There are either 6 or 7 of the brown shapes.</li>
+          <li>The number of yellow shapes is greater than 4.</li>
+          <li>The smallest number of shapes applies to the red shapes.</li>
+          <li>The hexagons are not the yellow shapes.</li>
+          <li>There are fewer brown shapes than green shapes.</li>
+        </ol>
+      </div>
+      <div id="level2-result" class="result-message hidden"></div>
+    </div>
+  </div>
+
+  <!-- Level 3: Scatter Plot -->
+  <div id="level3-screen" class="screen">
+    <div class="level-container">
+      <h2>Level 3: Noise Filtering</h2>
+      <p>Click on outlier points to remove them. Keep the dense clusters intact!</p>
+      <div class="scatter-info">
+        <span>Points remaining: <span id="points-remaining">100</span></span>
+        <button id="reset-scatter" class="btn btn-secondary">Reset</button>
+      </div>
+      <canvas id="scatter-canvas" width="600" height="400"></canvas>
+      <button id="check-scatter" class="btn btn-primary">Check Solution</button>
+      <div id="level3-result" class="result-message hidden"></div>
+    </div>
+  </div>
+
+  <!-- Victory Screen -->
+  <div id="victory-screen" class="screen">
+    <div class="victory-container">
+      <h1>🏆 Congratulations!</h1>
+      <p>You've mastered all three levels of Logic Master!</p>
+      <button id="play-again" class="btn btn-primary">Play Again</button>
+    </div>
+  </div>
+
+  <!-- Game Over Screen -->
+  <div id="gameover-screen" class="screen">
+    <div class="gameover-container">
+      <h1>💀 Game Over</h1>
+      <p id="gameover-message">Better luck next time!</p>
+      <button id="try-again" class="btn btn-primary">Try Again</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
